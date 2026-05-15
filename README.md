@@ -551,33 +551,82 @@ Secure Health Data Isolation
 
 # 📸 Screenshots
 
+## 🔐 Login Page
+
+![Login Page](screenshots/loginPage.png)
+
+<p align="center">
+  <em>User authentication page with secure JWT-based login system.</em>
+</p>
+
+---
+
+## 📝 Registration Page
+
+![Registration Page](screenshots/registrationPage.png)
+
+<p align="center">
+  <em>User registration interface for creating new LifeGuard AI accounts.</em>
+</p>
+
+---
+
 ## 🏠 Dashboard
 
-*Add dashboard screenshot here*
+![Dashboard](screenshots/healthdatainput.png)
 
-```md
-![Dashboard](images/dashboard.png)
-```
+<p align="center">
+  <em>Main healthcare monitoring dashboard showing patient analytics and insights.</em>
+</p>
 
 ---
 
 ## 📊 Health Analytics
 
-*Add analytics screenshot here*
+![Health Analytics](screenshots/analysisgraph.png)
 
-```md
-![Analytics](images/analytics.png)
-```
+<p align="center">
+  <em>Interactive cards displaying heart rate, stress level, temperature, and sleep trends.</em>
+</p>
 
 ---
 
-## 🤖 AI Insights
+## 🤖 AI Health Insights
 
-*Add AI insights screenshot here*
+![AI Insights](screenshots/AIhealthInsights.png)
 
-```md
-![AI Insight](images/ai_insight.png)
-```
+<p align="center">
+  <em>RAG-based AI explanations and intelligent healthcare recommendations.</em>
+</p>
+
+---
+
+## 📈 Prediction Monitoring
+
+![Prediction Monitoring](screenshots/predictions.png)
+
+<p align="center">
+  <em>Prediction service dashboard showing health-risk analysis and processing.</em>
+</p>
+
+---
+
+## 🧠 ChromaDB / AI Pipeline
+
+![Health Data Ingestion](screenshots/backendinput.png)
+<p align="center"><em>Real-time health data ingestion through FastAPI microservice with Kafka-based event streaming.</em></p>
+![AI Health Insights](screenshots/queryaiexplanation.png)
+<p align="center"><em>RAG-powered AI health analysis generating personalized risk explanations and medical recommendations.</em></p>
+
+---
+
+## 🐳 Docker Containers
+
+![Docker Containers](screenshots/docker.png)
+
+<p align="center">
+  <em>Dockerized microservices architecture running multiple backend services.</em>
+</p>
 
 ---
 
