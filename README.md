@@ -605,6 +605,7 @@ Secure Health Data Isolation
 
 ![Health Data Ingestion](screenshots/backendinput.png)
 <p align="center"><em>Real-time health data ingestion through FastAPI microservice with Kafka-based event streaming.</em></p>
+
 ![AI Health Insights](screenshots/queryaiexplanation.png)
 <p align="center"><em>RAG-powered AI health analysis generating personalized risk explanations and medical recommendations.</em></p>
 
