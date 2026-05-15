@@ -1,281 +1,274 @@
-````markdown
-# 🩺 LifeGuard AI 2.0 — Real-Time Predictive Health Intelligence Platform
+# 🚑 LifeGuard AI 2.0 – Real-Time Predictive Health Intelligence Platform
 
-> An AI-powered real-time health monitoring and predictive analytics platform built using distributed systems, event-driven microservices, and Retrieval-Augmented Generation (RAG).
+A production-inspired **AI-powered healthcare monitoring platform** built using **FastAPI, ReactJS, Kafka, PostgreSQL, Redis, Docker, and RAG (ChromaDB)** for real-time health ingestion, AI-based risk prediction, and intelligent medical insights.
 
-![Frontend](https://img.shields.io/badge/Frontend-ReactJS-blue)
-![Backend](https://img.shields.io/badge/Backend-FastAPI-green)
-![Database](https://img.shields.io/badge/Database-PostgreSQL-blue)
-![Streaming](https://img.shields.io/badge/Streaming-Kafka-orange)
-![VectorDB](https://img.shields.io/badge/VectorDB-ChromaDB-red)
-![Deployment](https://img.shields.io/badge/Deployment-Docker-informational)
-![Architecture](https://img.shields.io/badge/Architecture-Microservices-success)
-![Status](https://img.shields.io/badge/Project_Status-Production--Grade-success)
-
----
-
-# ⚠️ Important Notice
-
-> **Note:**  
-> This repository is a portfolio showcase version of **LifeGuard AI 2.0**.  
-> Some advanced production features, internal AI pipelines, enterprise integrations, infrastructure configurations, and proprietary implementations are intentionally excluded.
+![Tech](https://img.shields.io/badge/Tech-FastAPI%20%7C%20React%20%7C%20Kafka%20%7C%20PostgreSQL%20%7C%20Docker-blue)
+![AI](https://img.shields.io/badge/AI-RAG%20%7C%20ChromaDB%20%7C%20Transformers-green)
+![Architecture](https://img.shields.io/badge/Architecture-Microservices-orange)
+![Status](https://img.shields.io/badge/Project_Status-Completed-success)
 
 ---
 
 # 📌 Table of Contents
 
-- [Overview](#-overview)
-- [Problem Statement](#-problem-statement)
-- [Project Aim](#-project-aim)
-- [Objectives](#-objectives)
-- [Key Features](#-key-features)
-- [System Architecture](#-system-architecture)
-- [Tech Stack](#-tech-stack)
-- [Microservices Architecture](#-microservices-architecture)
-- [Project Structure](#-project-structure)
-- [Frontend Features](#-frontend-features)
-- [Backend Features](#-backend-features)
-- [AI & RAG Pipeline](#-ai--rag-pipeline)
-- [Authentication System](#-authentication-system)
-- [Real-Time Data Pipeline](#-real-time-data-pipeline)
-- [Database Design](#-database-design)
-- [Docker Deployment](#-docker-deployment)
-- [Quick Start](#-quick-start)
-- [Environment Variables](#-environment-variables)
-- [API Overview](#-api-overview)
-- [Screenshots](#-screenshots)
-- [Learning Outcomes](#-learning-outcomes)
-- [Future Enhancements](#-future-enhancements)
-- [License](#-license)
-- [Author](#-author)
+* [Overview](#-overview)
+* [Aim of the Project](#-aim-of-the-project)
+* [Objectives](#-objectives)
+* [Key Features](#-key-features)
+* [System Architecture](#-system-architecture)
+* [Tech Stack](#-tech-stack)
+* [Project Structure](#-project-structure)
+* [Microservices Overview](#-microservices-overview)
+* [Backend Setup](#-backend-setup)
+* [Frontend Setup](#-frontend-setup)
+* [Docker Setup](#-docker-setup)
+* [Environment Variables](#-environment-variables)
+* [API Overview](#-api-overview)
+* [AI & RAG Pipeline](#-ai--rag-pipeline)
+* [Authentication Flow](#-authentication-flow)
+* [Database Design](#-database-design)
+* [Screenshots](#-screenshots)
+* [Future Improvements](#-future-improvements)
+* [License](#-license)
+* [Note](#-note)
+* [Author](#-author)
 
 ---
 
-# 📖 Overview
+# 🚀 Overview
 
-LifeGuard AI 2.0 is a real-time predictive healthcare intelligence platform designed to monitor patient health vitals, analyze risk levels, generate AI-driven insights, and provide alert-based monitoring using distributed microservices.
+**LifeGuard AI 2.0** is a real-time intelligent healthcare analytics platform designed to monitor patient health data continuously and generate AI-powered insights for early risk detection.
 
-The system processes live health data streams through Apache Kafka, stores structured records in PostgreSQL, caches data with Redis, and uses ChromaDB-powered Retrieval-Augmented Generation (RAG) for intelligent AI explanations and recommendations.
+The system collects health vitals such as:
 
-The platform demonstrates production-grade backend architecture concepts including:
+✔️ Heart Rate
+✔️ Body Temperature
+✔️ Stress Level
+✔️ Sleep Hours
 
-- Event-driven systems
-- Distributed microservices
-- Real-time streaming
-- AI-powered analytics
-- JWT authentication
-- Dockerized deployment
-- RAG-based intelligence systems
+The platform processes these values using a **distributed event-driven microservices architecture** powered by **Kafka**, stores structured data in **PostgreSQL**, caches responses with **Redis**, and generates intelligent medical explanations using **RAG (Retrieval-Augmented Generation)** with **ChromaDB** and **Transformers**.
 
----
+The project demonstrates concepts used in modern large-scale systems including:
 
-# ❗ Problem Statement
-
-Traditional health monitoring systems often suffer from:
-
-- Delayed detection of critical health conditions
-- Lack of intelligent prediction systems
-- Poor scalability for real-time monitoring
-- No AI-based explanation for medical risks
-- Limited real-time alerting capabilities
-
-LifeGuard AI 2.0 addresses these issues using scalable distributed system architecture and AI-driven predictive analytics.
+✅ Distributed Systems
+✅ Microservices
+✅ Event-Driven Architecture
+✅ AI-Powered Recommendations
+✅ Real-Time Data Streaming
+✅ JWT Authentication
+✅ Dockerized Deployment
+✅ Scalable Backend Engineering
 
 ---
 
-# 🎯 Project Aim
+# 🎯 Aim of the Project
 
-The main aim of LifeGuard AI 2.0 is to build a scalable, intelligent, and real-time health monitoring platform capable of:
+The main aim of **LifeGuard AI 2.0** is to build a scalable AI-driven healthcare monitoring platform capable of:
 
-- Monitoring patient vitals continuously
-- Detecting abnormal health conditions
-- Generating predictive risk analysis
-- Providing AI-generated medical explanations
-- Supporting scalable distributed architecture
+* Collecting real-time patient health data
+* Detecting abnormal health conditions
+* Providing AI-generated medical insights
+* Supporting scalable microservices communication
+* Demonstrating production-grade backend architecture
 
 ---
 
 # 🎯 Objectives
 
-- Build real-time health data ingestion pipelines
-- Implement event-driven communication using Kafka
-- Create secure JWT-based authentication
-- Develop predictive health risk analysis
-- Integrate AI-powered RAG explanations
-- Build scalable microservices architecture
-- Visualize health trends through dashboards
-- Enable Docker-based deployment
+### ✔️ Real-Time Monitoring
+
+Monitor patient health vitals continuously using streaming pipelines.
+
+### ✔️ AI-Based Prediction
+
+Predict health risks using AI processing pipelines and intelligent analysis.
+
+### ✔️ Distributed System Design
+
+Implement scalable communication using Kafka-based event streaming.
+
+### ✔️ Secure Authentication
+
+Protect patient data using JWT authentication and role isolation.
+
+### ✔️ RAG-Based Medical Insights
+
+Generate contextual AI explanations using vector search and retrieval pipelines.
+
+### ✔️ Scalable Architecture
+
+Design production-inspired infrastructure using Dockerized services.
 
 ---
 
-# 🚀 Key Features
+# 🔑 Key Features
 
 ## 🔐 Authentication System
 
-- JWT-based secure login/register
-- Password hashing using bcrypt
-- Protected APIs
-- User-based health isolation
-
-## 📊 Real-Time Dashboard
-
-- Live health monitoring
-- Risk score visualization
-- Alert notifications
-- AI-generated recommendations
-- Auto-refresh dashboard
-
-## ⚡ Distributed Architecture
-
-- Event-driven microservices
-- Kafka streaming pipeline
-- Independent scalable services
-
-## 🧠 AI Health Intelligence
-
-- RAG-powered AI explanations
-- Health recommendation engine
-- Risk interpretation
-- Context-aware health analysis
-
-## 📈 Predictive Analytics
-
-- Health risk scoring
-- High-risk detection
-- Trend analysis
-- Alert generation
+* JWT-based authentication
+* Secure login and registration
+* Password hashing using bcrypt
+* Protected API routes
 
 ---
 
-# 🏗️ System Architecture
+## 📊 Real-Time Health Monitoring
+
+* Live patient vital ingestion
+* Health trends visualization
+* Risk monitoring dashboard
+* Prediction processing pipeline
+
+---
+
+## 🤖 AI Health Insights
+
+* AI-generated health explanations
+* Risk analysis and recommendations
+* Retrieval-Augmented Generation (RAG)
+* Context-aware medical responses
+
+---
+
+## ⚡ Event-Driven Architecture
+
+* Kafka-based communication
+* Asynchronous health event streaming
+* Decoupled microservices
+* Scalable ingestion pipelines
+
+---
+
+## 🧠 RAG + Vector Database
+
+* ChromaDB vector storage
+* Semantic health knowledge retrieval
+* Transformer embeddings
+* AI-powered contextual reasoning
+
+---
+
+## 🐳 Dockerized Deployment
+
+* Multi-container architecture
+* Docker Compose orchestration
+* Independent service deployment
+* Easy scalability
+
+---
+
+# 🏗 System Architecture
 
 ```text
 Frontend (React Dashboard)
-        │
-        ▼
-FastAPI Backend API
-        │
-        ▼
-Kafka Event Streaming
-        │
- ┌───────────────┬────────────────┐
- ▼               ▼                ▼
-Ingestion     Prediction       AI/RAG
-Service       Service          Service
- │               │                │
- ▼               ▼                ▼
-PostgreSQL     Redis          ChromaDB
-````
+            │
+            ▼
+     FastAPI Backend
+            │
+            ▼
+   Kafka Event Streaming
+            │
+ ┌──────────┴──────────┐
+ ▼                     ▼
+Ingestion Service   Prediction Service
+ │                     │
+ ▼                     ▼
+PostgreSQL         AI Risk Analysis
+ │                     │
+ ▼                     ▼
+Redis Cache       RAG + ChromaDB
+```
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠 Tech Stack
 
-## 🎨 Frontend
+# 🎨 Frontend
 
 * ReactJS
 * Tailwind CSS
 * Recharts
 * Axios
 * React Router
-* Vite
+* Leaflet Maps
 
-## ⚙️ Backend
+---
+
+# ⚙️ Backend
 
 * FastAPI
+* Python
 * SQLAlchemy
 * Pydantic
 * JWT Authentication
 * REST APIs
 
-## 🗄️ Databases
+---
+
+# 📦 Database & Storage
 
 * PostgreSQL
 * Redis
 * ChromaDB
 
-## ⚡ Streaming & Distributed Systems
+---
+
+# ⚡ Streaming & Distributed Systems
 
 * Apache Kafka
 * Zookeeper
-
-## 🤖 AI & Machine Learning
-
-* Sentence Transformers
-* Transformers
-* PyTorch
-* Retrieval-Augmented Generation (RAG)
-
-## 🐳 DevOps & Deployment
-
-* Docker
-* Docker Compose
+* Event-Driven Architecture
+* Microservices
 
 ---
 
-# 🧩 Microservices Architecture
+# 🤖 AI / Machine Learning
 
-The platform follows a distributed microservices architecture:
+* Transformers
+* Sentence Transformers
+* RAG (Retrieval-Augmented Generation)
+* Vector Embeddings
 
-## 1️⃣ Backend Service
+---
 
-Handles:
+# 🐳 DevOps & Deployment
 
-* Authentication
-* User management
-* API gateway
-* Dashboard APIs
-
-## 2️⃣ Ingestion Service
-
-Handles:
-
-* Incoming health vitals
-* Kafka event publishing
-* Real-time ingestion
-
-## 3️⃣ Prediction Service
-
-Handles:
-
-* Risk analysis
-* Health score generation
-* Alert creation
-
-## 4️⃣ AI/RAG Service
-
-Handles:
-
-* AI explanations
-* Context retrieval
-* Recommendation generation
+* Docker
+* Docker Compose
+* Uvicorn
+* Environment Variables
 
 ---
 
 # 📁 Project Structure
 
 ```text
-LifeGuard-AI-2.0/
+LifeGuard_AI_2.0/
 │
 ├── frontend/
 │   ├── src/
 │   ├── components/
 │   ├── pages/
+│   ├── charts/
 │   └── services/
 │
 ├── backend/
 │   ├── app/
-│   ├── api/
+│   ├── routes/
 │   ├── models/
 │   ├── schemas/
-│   └── services/
+│   ├── auth/
+│   └── database/
 │
 ├── microservices/
 │   ├── ingestion_service/
 │   ├── prediction_service/
-│   └── internal_model/
+│   └── ai_service/
 │
 ├── shared/
+│   ├── kafka/
+│   ├── utils/
+│   └── schemas/
 │
 ├── docker-compose.yml
 ├── requirements.txt
@@ -284,130 +277,61 @@ LifeGuard-AI-2.0/
 
 ---
 
-# 🎨 Frontend Features
+# ⚙️ Microservices Overview
 
-* Health dashboard
-* Authentication pages
-* Real-time charts
-* Risk cards
-* Alert notifications
-* Health input forms
-* AI insight cards
+## 🩺 Ingestion Service
 
----
+Responsible for:
 
-# ⚙️ Backend Features
+* Receiving patient health data
+* Validating incoming requests
+* Publishing Kafka events
 
-* REST APIs
-* JWT security
-* Kafka integration
-* PostgreSQL ORM models
-* Redis caching
-* AI service integration
-* Health prediction APIs
-
----
-
-# 🧠 AI & RAG Pipeline
-
-The AI system uses Retrieval-Augmented Generation (RAG):
-
-1. Health records are processed
-2. Relevant context retrieved from ChromaDB
-3. AI generates contextual explanation
-4. Recommendations returned to dashboard
-
-This improves explainability and intelligent decision support.
-
----
-
-# 🔐 Authentication System
-
-The system uses:
-
-* JWT Tokens
-* Password hashing
-* Protected routes
-* User-specific dashboards
-
-Authentication flow:
+Runs on:
 
 ```text
-User Login → JWT Token → Protected APIs → Dashboard Access
+http://localhost:8101
 ```
 
 ---
 
-# ⚡ Real-Time Data Pipeline
+## 📈 Prediction Service
+
+Responsible for:
+
+* Consuming Kafka health events
+* Running health-risk prediction logic
+* Generating alerts
+
+Runs on:
 
 ```text
-Health Input
-     │
-     ▼
-Ingestion Service
-     │
-     ▼
-Kafka Topic
-     │
-     ▼
-Prediction Service
-     │
-     ▼
-Database + Alerts + AI
+http://localhost:8102
 ```
 
 ---
 
-# 🗄️ Database Design
+## 🤖 AI Service
 
-## PostgreSQL Stores
+Responsible for:
 
-* Users
-* Health records
-* Predictions
-* Alerts
-
-## Redis Stores
-
-* Cached predictions
-* Fast dashboard responses
-
-## ChromaDB Stores
-
-* AI embeddings
-* RAG knowledge context
+* RAG pipeline execution
+* ChromaDB vector retrieval
+* AI-generated explanations
 
 ---
 
-# 🐳 Docker Deployment
-
-The project is fully containerized using Docker Compose.
-
-Services include:
-
-* Frontend
-* Backend
-* Kafka
-* Zookeeper
-* PostgreSQL
-* Redis
-* ChromaDB
-* Prediction Service
-* Ingestion Service
-
----
-
-# ⚡ Quick Start
+# ⚙️ Backend Setup
 
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/Gayatrip-26/LifeGuard-AI-2.0.git
+git clone https://github.com/your-username/LifeGuard-AI-2.0.git
 ```
 
 ---
 
-## 2️⃣ Open Project
+## 2️⃣ Navigate to Project
 
 ```bash
 cd LifeGuard-AI-2.0
@@ -415,7 +339,69 @@ cd LifeGuard-AI-2.0
 
 ---
 
-## 3️⃣ Start Docker Services
+## 3️⃣ Install Backend Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 4️⃣ Run Backend
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Backend runs on:
+
+```text
+http://localhost:8000
+```
+
+Swagger Docs:
+
+```text
+http://localhost:8000/docs
+```
+
+---
+
+# 🎨 Frontend Setup
+
+## 1️⃣ Navigate to Frontend
+
+```bash
+cd frontend
+```
+
+---
+
+## 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 3️⃣ Run Frontend
+
+```bash
+npm run dev
+```
+
+Frontend runs on:
+
+```text
+http://localhost:5173
+```
+
+---
+
+# 🐳 Docker Setup
+
+## ▶️ Start Entire Project
 
 ```bash
 docker compose up --build
@@ -423,25 +409,34 @@ docker compose up --build
 
 ---
 
-# 🌐 Access Application
+## ▶️ Run in Background
 
-| Service      | URL                                                      |
-| ------------ | -------------------------------------------------------- |
-| Frontend     | [http://localhost:5173](http://localhost:5173)           |
-| Backend Docs | [http://localhost:8000/docs](http://localhost:8000/docs) |
-| ChromaDB     | [http://localhost:8001](http://localhost:8001)           |
+```bash
+docker compose up -d
+```
 
 ---
 
-# 🔑 Environment Variables
+## ▶️ Stop Containers
 
-Create `.env` file:
+```bash
+docker compose down
+```
+
+---
+
+# 🔐 Environment Variables
+
+Create `.env` file inside backend:
 
 ```env
-DATABASE_URL=postgresql://postgres:postgres@postgres:5432/lifeguard
+DATABASE_URL=postgresql://postgres:password@postgres:5432/lifeguard
 SECRET_KEY=your_secret_key
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
 KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-REDIS_URL=redis://redis:6379
+REDIS_HOST=redis
 CHROMA_HOST=chromadb
 ```
 
@@ -449,105 +444,183 @@ CHROMA_HOST=chromadb
 
 # 📡 API Overview
 
-## Authentication APIs
+# 🔐 Authentication APIs
 
-### POST `/auth/register`
+## POST `/auth/register`
 
-Register user.
-
-### POST `/auth/login`
-
-Authenticate user.
+Registers a new user.
 
 ---
 
-## Health APIs
+## POST `/auth/login`
 
-### POST `/health`
-
-Submit health vitals.
-
-### GET `/health/{user_id}`
-
-Get health history.
+Authenticates users and generates JWT token.
 
 ---
 
-## AI APIs
+# 🩺 Health APIs
 
-### POST `/ai/query`
+## POST `/health`
 
-Generate AI explanation.
+Stores patient health data.
+
+Example Request:
+
+```json
+{
+  "patient_id": "user_3",
+  "user_id": 3,
+  "heart_rate": 80,
+  "temperature": 36,
+  "stress_level": 30,
+  "sleep_hours": 8,
+  "timestamp": "2026-05-15T10:56:39.987Z"
+}
+```
+
+---
+
+## GET `/health/{user_id}`
+
+Returns historical health records.
+
+---
+
+# 🤖 AI APIs
+
+## POST `/ai/query`
+
+Returns AI-generated health explanations and recommendations.
+
+---
+
+# 🧠 AI & RAG Pipeline
+
+LifeGuard AI 2.0 uses **Retrieval-Augmented Generation (RAG)** to generate intelligent medical explanations.
+
+### Pipeline Flow
+
+1️⃣ User submits health data
+2️⃣ Data stored in PostgreSQL
+3️⃣ Kafka streams events
+4️⃣ Prediction service analyzes risk
+5️⃣ ChromaDB retrieves relevant medical context
+6️⃣ Transformers generate AI explanation
+7️⃣ Dashboard displays insights
+
+---
+
+# 🔐 Authentication Flow
+
+```text
+User Login
+    │
+    ▼
+JWT Token Generated
+    │
+    ▼
+Protected API Access
+    │
+    ▼
+Secure Health Data Isolation
+```
+
+---
+
+# 🗄 Database Design
+
+## PostgreSQL Tables
+
+### Users
+
+* id
+* email
+* hashed_password
+* created_at
+
+### Health Records
+
+* patient_id
+* heart_rate
+* temperature
+* stress_level
+* sleep_hours
+* timestamp
 
 ---
 
 # 📸 Screenshots
 
-## Dashboard
+## 🏠 Dashboard
 
-* Real-time risk monitoring
-* AI insights
-* Alerts and analytics
+*Add dashboard screenshot here*
 
-## Health Input
-
-* Submit health vitals
-* Trigger predictions
-
-## AI Explanation Panel
-
-* Intelligent medical insights
-* Recommendations
+```md
+![Dashboard](images/dashboard.png)
+```
 
 ---
 
-# 📚 Learning Outcomes
+## 📊 Health Analytics
 
-Through this project, the following concepts were implemented and learned:
+*Add analytics screenshot here*
 
-* Distributed systems
-* Microservices architecture
-* Event-driven systems
-* Kafka streaming
-* Docker deployment
-* AI integration
-* RAG pipelines
-* JWT authentication
-* PostgreSQL optimization
-* System design concepts
+```md
+![Analytics](images/analytics.png)
+```
 
 ---
 
-# 🚀 Future Enhancements
+## 🤖 AI Insights
 
-* Kubernetes deployment
+*Add AI insights screenshot here*
+
+```md
+![AI Insight](images/ai_insight.png)
+```
+
+---
+
+# 🚀 Future Improvements
+
 * Wearable device integration
 * Real ML prediction models
-* Mobile application
-* Multi-hospital architecture
-* Advanced analytics engine
-* Real-time WebSocket updates
-* Cloud deployment (AWS/GCP)
+* SMS & email emergency alerts
+* Kubernetes deployment
+* Role-based doctor dashboards
+* Real-time WebSocket streaming
+* Multi-patient monitoring
+* Cloud deployment on AWS/GCP
 
 ---
 
 # 📜 License
 
-```text
-MIT License
+## Custom Portfolio Showcase License
 
-Copyright (c) 2026 Gayatri Patil
+This project is provided strictly for:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to use
-the Software for personal, educational, and portfolio review purposes only.
+✅ Portfolio showcase
+✅ Educational purposes
+✅ Recruiter evaluation
 
-Commercial usage, resale, redistribution, SaaS deployment,
-AI model replication, or production deployment without explicit
-written permission from the author is prohibited.
+The following are **NOT permitted** without explicit permission:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
-```
+❌ Commercial usage
+❌ Re-distribution
+❌ Re-selling
+❌ Production deployment
+❌ Copying core architecture for commercial projects
+
+© 2026 Gayatri Patil. All Rights Reserved.
+
+---
+
+# ⚠️ Note
+
+> This repository is a **portfolio showcase version** of LifeGuard AI 2.0.
+>
+> Some advanced production features, AI pipelines, internal optimizations, and enterprise-level infrastructure components are intentionally excluded from the public repository.
 
 ---
 
@@ -555,15 +628,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 
 ## Gayatri Patil
 
-* GitHub: [https://github.com/Gayatrip-26](https://github.com/Gayatrip-26)
-* LinkedIn: [https://www.linkedin.com/in/gayatri-patil-524620283/](https://www.linkedin.com/in/gayatri-patil-524620283/)
-* Portfolio: [https://Gayatrip-26.github.io/](https://Gayatrip-26.github.io/)
+📧 Email: [gayatripp26@gmail.com](mailto:gayatripp26@gmail.com)
+
+🐙 GitHub: [https://github.com/Gayatrip-26](https://github.com/Gayatrip-26)
+
+💼 LinkedIn: [https://www.linkedin.com/in/gayatri-patil-524620283/](https://www.linkedin.com/in/gayatri-patil-524620283/)
 
 ---
-
-# ⭐ If you liked this project
-
-Give this repository a ⭐ on GitHub to support the project.
-
-```
-```
