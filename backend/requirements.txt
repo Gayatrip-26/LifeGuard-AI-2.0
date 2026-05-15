@@ -1,0 +1,31 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# Auth
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+python-jose[cryptography]==3.3.0
+
+# Core
+pydantic==2.9.2
+pydantic-settings==2.5.2
+email-validator==2.2.0
+python-dotenv==1.0.1
+
+# DB
+sqlalchemy==2.0.35
+psycopg2-binary==2.9.9
+
+# Infra
+redis==5.1.1
+kafka-python==2.0.2
+
+# RAG (lighter + stable)
+chromadb==0.5.4
+# sentence-transformers==2.7.0
+
+
+
+
+
+
