@@ -1,19 +1,37 @@
-import logging
+from fastapi import FastAPI
 
-from fastapi import APIRouter, HTTPException, status
+app = FastAPI()
 
-logger = logging.getLogger(__name__)
+@app.get("/")
+def home():
+    return {
+        "service": "Prediction Service",
+        "status": "running"
+    }
 
-router = APIRouter(prefix="/health", tags=["health"])
+@app.post("/predict")
+def predict(data: dict):
 
+    score = 20
 
-@router.get("")
-def health_check() -> dict:
-    try:
-        return {"status": "ok", "service": "backend"}
-    except Exception as exc:
-        logger.exception("Health check failed: %s", exc)
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Health check failed.",
-        ) from exc
+    if data.get("heart_rate", 0) > 100:
+        score += 30
+
+    if data.get("stress_level", 0) > 70:
+        score += 25
+
+    if data.get("sleep_hours", 0) < 5:
+        score += 20
+
+    risk = "Low"
+
+    if score > 70:
+        risk = "High"
+    elif score > 40:
+        risk = "Medium"
+
+    return {
+        "risk_score": score,
+        "risk_level": risk,
+        "prediction": "Demo prediction generated for public showcase."
+    }
