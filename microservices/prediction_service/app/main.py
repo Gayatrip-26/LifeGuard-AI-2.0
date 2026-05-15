@@ -1,32 +1,37 @@
-import logging
-import os
-import threading
-
 from fastapi import FastAPI
 
-from app.kafka_consumer import run_consumer
+app = FastAPI()
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("prediction_service")
-
-app = FastAPI(
-    title="LifeGuard Prediction Service",
-    version="0.1.0",
-    description="Starter microservice for risk prediction processing.",
-)
-
-
-@app.on_event("startup")
-def start_consumer_thread() -> None:
-    consumer_thread = threading.Thread(target=run_consumer, daemon=True, name="kafka-consumer")
-    consumer_thread.start()
-    logger.info("Background Kafka consumer thread started.")
-
-
-@app.get("/health")
-def health() -> dict:
+@app.get("/")
+def home():
     return {
-        "status": "ok",
-        "service": os.getenv("SERVICE_NAME", "prediction_service"),
-        "kafka_bootstrap_servers": os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092"),
+        "service": "Prediction Service",
+        "status": "running"
+    }
+
+@app.post("/predict")
+def predict(data: dict):
+
+    score = 20
+
+    if data.get("heart_rate", 0) > 100:
+        score += 30
+
+    if data.get("stress_level", 0) > 70:
+        score += 25
+
+    if data.get("sleep_hours", 0) < 5:
+        score += 20
+
+    risk = "Low"
+
+    if score > 70:
+        risk = "High"
+    elif score > 40:
+        risk = "Medium"
+
+    return {
+        "risk_score": score,
+        "risk_level": risk,
+        "prediction": "Demo prediction generated for public showcase."
     }
