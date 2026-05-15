@@ -1,26 +1,37 @@
-import logging
+from fastapi import FastAPI
 
-from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.exc import SQLAlchemyError
-from sqlalchemy.orm import Session
+app = FastAPI()
 
-from app.core.auth import get_current_user
-from app.db.session import get_db
-from app.models.user import User
-from app.schemas.user import UserResponse
+@app.get("/")
+def home():
+    return {
+        "service": "Prediction Service",
+        "status": "running"
+    }
 
-logger = logging.getLogger(__name__)
+@app.post("/predict")
+def predict(data: dict):
 
-router = APIRouter(prefix="/users", tags=["users"])
+    score = 20
 
+    if data.get("heart_rate", 0) > 100:
+        score += 30
 
-@router.get("/me", response_model=UserResponse)
-def get_current_user_profile(current_user: User = Depends(get_current_user)) -> UserResponse:
-    try:
-        return UserResponse.model_validate(current_user)
-    except Exception as exc:
-        logger.exception("Failed to serialize user profile: %s", exc)
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Could not load profile.",
-        ) from exc
+    if data.get("stress_level", 0) > 70:
+        score += 25
+
+    if data.get("sleep_hours", 0) < 5:
+        score += 20
+
+    risk = "Low"
+
+    if score > 70:
+        risk = "High"
+    elif score > 40:
+        risk = "Medium"
+
+    return {
+        "risk_score": score,
+        "risk_level": risk,
+        "prediction": "Demo prediction generated for public showcase."
+    }
