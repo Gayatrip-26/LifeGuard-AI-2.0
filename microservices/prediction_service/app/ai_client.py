@@ -1,46 +1,37 @@
-import logging
-import os
+from fastapi import FastAPI
 
-import httpx
+app = FastAPI()
 
-logger = logging.getLogger("prediction_service.ai")
-AI_QUERY_URL = os.getenv("BACKEND_AI_URL", "http://backend:8000/ai/query")
-INTERNAL_SERVICE_TOKEN = os.getenv("INTERNAL_SERVICE_TOKEN", "")
-DEFAULT_USER_ID = int(os.getenv("DEFAULT_USER_ID", "1"))
+@app.get("/")
+def home():
+    return {
+        "service": "Prediction Service",
+        "status": "running"
+    }
 
+@app.post("/predict")
+def predict(data: dict):
 
-def build_query(issues: list[str]) -> str:
-    return f"Explain health risks for: {', '.join(issues)}"
+    score = 20
 
+    if data.get("heart_rate", 0) > 100:
+        score += 30
 
-def _service_headers() -> dict[str, str]:
-    if not INTERNAL_SERVICE_TOKEN:
-        return {}
-    return {"X-Internal-Token": INTERNAL_SERVICE_TOKEN}
+    if data.get("stress_level", 0) > 70:
+        score += 25
 
+    if data.get("sleep_hours", 0) < 5:
+        score += 20
 
-def get_ai_explanation(
-    issues: list[str],
-    query: str | None = None,
-    user_id: int | None = None,
-) -> str:
-    if not issues:
-        return "No active issues detected."
+    risk = "Low"
 
-    query_text = query or build_query(issues)
-    uid = user_id if user_id is not None else DEFAULT_USER_ID
+    if score > 70:
+        risk = "High"
+    elif score > 40:
+        risk = "Medium"
 
-    try:
-        body_json: dict = {"query": query_text, "user_id": uid}
-        with httpx.Client(timeout=8.0) as client:
-            response = client.post(
-                AI_QUERY_URL,
-                headers=_service_headers(),
-                json=body_json,
-            )
-            response.raise_for_status()
-            body = response.json()
-            return body.get("answer", "No explanation returned.")
-    except Exception as exc:
-        logger.warning("AI explanation unavailable: %s", exc)
-        return "Basic analysis: Possible health imbalance detected. Monitor your vitals."
+    return {
+        "risk_score": score,
+        "risk_level": risk,
+        "prediction": "Demo prediction generated for public showcase."
+    }
