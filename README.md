@@ -601,16 +601,6 @@ Secure Health Data Isolation
 
 ---
 
-## 📈 Prediction Monitoring
-
-![Prediction Monitoring](screenshots/predictions.png)
-
-<p align="center">
-  <em>Prediction service dashboard showing health-risk analysis and processing.</em>
-</p>
-
----
-
 ## 🧠 ChromaDB / AI Pipeline
 
 ![Health Data Ingestion](screenshots/backendinput.png)
