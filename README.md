@@ -601,6 +601,16 @@ Secure Health Data Isolation
 
 ---
 
+## 📜 Prediction History
+
+![Prediction History](screenshots/AIexplanation.png)
+
+<p align="center">
+  <em>Comprehensive prediction history table displaying risk levels, health scores, detected issues, and AI-generated medical explanations for previous patient analyses.</em>
+</p>
+
+---
+
 ## 🧠 ChromaDB / AI Pipeline
 
 ![Health Data Ingestion](screenshots/backendinput.png)
